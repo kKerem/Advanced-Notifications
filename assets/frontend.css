@@ -1,0 +1,65 @@
+/* Pepech Notification System - Frontend Styles */
+
+/* Sadece gerekli özel stiller */
+.pepech-notification-badge {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Cartzilla Icons Support */
+.pepech-notification-icon i {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.pepech-notification-icon .ci-info-circle {
+    color: #17a2b8;
+}
+
+.pepech-notification-icon .ci-check-circle {
+    color: #28a745;
+}
+
+.pepech-notification-icon .ci-alert-triangle {
+    color: #ffc107;
+}
+
+.pepech-notification-icon .ci-close-circle {
+    color: #dc3545;
+}
+
+.pepech-notification-icon .ci-bell {
+    color: #6c757d;
+}
+
+/* Cleanup notice - sadece gerekli */
+.pepech-cleanup-notice {
+    margin: 20px 0;
+}
+
+.pepech-cleanup-notice .notice {
+    padding: 15px 20px;
+    border-left: 4px solid #007cba;
+    background: #f0f8ff;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.pepech-cleanup-notice .notice p {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.pepech-cleanup-notice .notice i {
+    color: #007cba;
+    font-size: 16px;
+}

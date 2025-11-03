@@ -1,98 +1,98 @@
-# Advanced Notifications
+# Pepech - Bildirim Sistemi
 
-An advanced notification system plugin for WordPress. It includes features for sending notifications to users, read receipts, and email integration.
+WordPress için gelişmiş bildirim sistemi eklentisi. Kullanıcılara bildirim gönderme, okundu işaretleme ve e-posta entegrasyonu özelliklerini içerir.
 
-## Features
+## Özellikler
 
-### 🎯 Key Features
-- **Header Dropdown**: Users can view their notifications in the header with a bell icon
-- **Mark as Read**: Individual and bulk mark as read system
-- **Email Integration**: Send notifications via email
-- **Admin Panel**: Easy notification sending and management interface
-- **My Notifications Page**: Page to view all notifications
+### 🎯 Temel Özellikler
+- **Header Dropdown**: Kullanıcıların bildirimlerini header'da bell ikonu ile görüntüleme
+- **Okundu İşaretleme**: Tekil ve toplu okundu işaretleme sistemi
+- **E-posta Entegrasyonu**: Bildirimlerin e-posta olarak gönderilmesi
+- **Yönetici Paneli**: Kolay bildirim gönderme ve yönetim arayüzü
+- **Bildirimlerim Sayfası**: Tüm bildirimleri görüntüleme sayfası
 
-### 🔧 Advanced Features
-- **API Support**: API functions for other plugins
-- **Notification Types**: Info, Success, Warning, Error types
-- **AJAX Operations**: Dynamic updates and interaction
-- **Responsive Design**: Mobile-friendly interface
-- **Pagination**: Pagination for large notification lists
+### 🔧 Gelişmiş Özellikler
+- **API Desteği**: Diğer eklentiler için API fonksiyonları
+- **Bildirim Türleri**: Info, Success, Warning, Error türleri
+- **AJAX İşlemler**: Dinamik güncelleme ve etkileşim
+- **Responsive Tasarım**: Mobil uyumlu arayüz
+- **Sayfalama**: Büyük bildirim listeleri için sayfalama
 
-## Installation
+## Kurulum
 
-1. Upload the plugin files to the `wp-content/plugins/pepech-notification-system/` folder
-2. Activate the plugin from the WordPress admin panel
-3. Configure the settings from the **Notifications** menu
+1. Eklenti dosyalarını `wp-content/plugins/pepech-notification-system/` klasörüne yükleyin
+2. WordPress admin panelinden eklentiyi aktifleştirin
+3. **Bildirimler** menüsünden ayarları yapılandırın
 
-## Usage
+## Kullanım
 
-### Admin Panel
+### Yönetici Paneli
 
-1. **Send Notification**: 
-   - Select a user
-   - Write a title and message
-   - Specify the notification type
-   - Set up email delivery
+1. **Bildirim Gönder**: 
+   - Kullanıcı seçin
+   - Başlık ve mesaj yazın
+   - Bildirim türünü belirleyin
+   - E-posta gönderimini ayarlayın
 
-2. **Manage Notifications**:
-   - View all notifications
-   - Review details
-   - Perform bulk actions
+2. **Bildirimleri Yönet**:
+   - Tüm bildirimleri görüntüleyin
+   - Detayları inceleyin
+   - Toplu işlemler yapın
 
-3. **Settings**:
-   - Enable/disable email notifications
-   - Set the number of notifications per page
-   - Clear old notifications
+3. **Ayarlar**:
+   - E-posta bildirimlerini açın/kapatın
+   - Sayfa başına bildirim sayısını ayarlayın
+   - Eski bildirimleri temizleyin
 
-### Frontend Integration
+### Frontend Entegrasyonu
 
-To display the notification dropdown in the header, add the following code to your theme file:
+Header'da bildirim dropdown'ını göstermek için tema dosyanıza şu kodu ekleyin:
 
 ```php
-<?php do_action(‘pepech_header_notifications’); ?>
+<?php do_action('pepech_header_notifications'); ?>
 ```
 
-### API Usage
+### API Kullanımı
 
-To send notifications from other plugins:
+Diğer eklentilerden bildirim göndermek için:
 
 ```php
-// Send a simple notification
-pepech_send_notification($user_id, ‘Title’, ‘Message content’);
+// Basit bildirim gönderme
+pepech_send_notification($user_id, 'Başlık', 'Mesaj içeriği');
 
-// Send an advanced notification
-pepech_send_notification($user_id, ‘Title’, ‘Message’, ‘success’, false);
+// Gelişmiş bildirim gönderme
+pepech_send_notification($user_id, 'Başlık', 'Mesaj', 'success', false);
 
-// Using a hook
-do_action(‘pepech_send_notification’, $user_id, $title, $message, $type, $send_email);
+// Hook kullanımı
+do_action('pepech_send_notification', $user_id, $title, $message, $type, $send_email);
 ```
 
-### Retrieving User Notifications
+### Kullanıcı Bildirimlerini Getirme
 
 ```php
-// Retrieve the last 10 notifications
+// Son 10 bildirimi getir
 $notifications = pepech_get_user_notifications($user_id, 10);
 
-// Get only unread notifications
+// Sadece okunmamış bildirimleri getir
 $unread_notifications = pepech_get_user_notifications($user_id, 10, true);
 
-// Get the number of unread notifications
+// Okunmamış bildirim sayısını getir
 $unread_count = pepech_get_unread_count($user_id);
 ```
 
-### Shortcode Usage
+### Kısa Kod Kullanımı
 
 ```php
-// For the My Notifications page
+// Bildirimlerim sayfası için
 [pepech_notifications limit="20" show_read="true"]
 
-// Only unread notifications
+// Sadece okunmamış bildirimler
 [pepech_notifications limit="5" show_read="false"]
 ```
 
-## Database Structure
+## Veritabanı Yapısı
 
-The plugin creates the following table:
+Eklenti aşağıdaki tabloyu oluşturur:
 
 ```sql
 CREATE TABLE wp_pepech_notifications (
@@ -100,8 +100,8 @@ CREATE TABLE wp_pepech_notifications (
     user_id bigint(20) NOT NULL,
     title varchar(255) NOT NULL,
     message text NOT NULL,
-    type varchar(50) DEFAULT ‘info’,
-    is_read tinyint (1) DEFAULT 0,
+    type varchar(50) DEFAULT 'info',
+    is_read tinyint(1) DEFAULT 0,
     send_email tinyint(1) DEFAULT 1,
     created_at datetime DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
@@ -111,101 +111,105 @@ CREATE TABLE wp_pepech_notifications (
 );
 ```
 
-## Customization
+## Özelleştirme
 
-### CSS Customization
+### CSS Özelleştirme
 
-To customize notification styles, add the following to your theme's CSS:
+Bildirim stillerini özelleştirmek için tema CSS'inize ekleyin:
 
 ```css
-/* Notification badge color */
+/* Bildirim badge rengi */
 .pepech-notification-badge {
     background: #your-color !important;
 }
 
-/* Unread notification background */
+/* Okunmamış bildirim arka planı */
 .pepech-notification-item.unread {
     background-color: #your-color !important;
 }
 ```
 
-### JavaScript Customization
+### JavaScript Özelleştirme
 
-To customize notification behaviors:
+Bildirim davranışlarını özelleştirmek için:
 
 ```javascript
-// Custom action when notification opens
-jQuery(document).on(‘pepech_notification_opened’, function(event, notification) {
-    console.log(‘Notification opened:’, notification);
+// Bildirim açıldığında özel işlem
+jQuery(document).on('pepech_notification_opened', function(event, notification) {
+    console.log('Bildirim açıldı:', notification);
 });
 
-// When the notification is marked as read
-jQuery(document).on(‘pepech_notification_read’, function(event, notificationId) {
-    console.log(‘Notification read:’, notificationId);
+// Bildirim okundu olarak işaretlendiğinde
+jQuery(document).on('pepech_notification_read', function(event, notificationId) {
+    console.log('Bildirim okundu:', notificationId);
 });
 ```
 
-## Hooks and Filters
+## Hook'lar ve Filtreler
 
-### Action Hooks
+### Action Hook'ları
 
 ```php
-// When a notification is sent
-do_action(‘pepech_notification_sent’, $notification_id, $user_id);
+// Bildirim gönderildiğinde
+do_action('pepech_notification_sent', $notification_id, $user_id);
 
-// When a notification is read
-do_action(‘pepech_notification_read’, $notification_id, $user_id);
+// Bildirim okunduğunda
+do_action('pepech_notification_read', $notification_id, $user_id);
 
-// When all notifications are read
-do_action(‘pepech_all_notifications_read’, $user_id);
+// Tüm bildirimler okunduğunda
+do_action('pepech_all_notifications_read', $user_id);
 ```
 
-### Filter Hooks
+### Filter Hook'ları
 
 ```php
-// Customize email content
-add_filter(‘pepech_email_content’, function($content, $title, $message) {
+// E-posta içeriğini özelleştirme
+add_filter('pepech_email_content', function($content, $title, $message) {
     return $custom_content;
 }, 10, 3);
 
-// Limit the number of notifications
-add_filter(‘pepech_max_notifications’, function($limit) {
-    return 20; // Maximum 20 notifications
+// Bildirim sayısını sınırlama
+add_filter('pepech_max_notifications', function($limit) {
+    return 20; // Maksimum 20 bildirim
 });
 ```
 
-## Troubleshooting
+## Sorun Giderme
 
-### Notifications Are Not Visible
-- Make sure the user is logged in
-- Check for JavaScript errors
-- Clear cache plugins
+### Bildirimler Görünmüyor
+- Kullanıcının giriş yapmış olduğundan emin olun
+- JavaScript hatalarını kontrol edin
+- Cache eklentilerini temizleyin
 
-### Emails Not Being Sent
-- Check WordPress mail settings
-- If using an SMTP plugin, check its settings
-- Ensure email notifications are enabled
+### E-posta Gönderilmiyor
+- WordPress mail ayarlarını kontrol edin
+- SMTP eklentisi kullanıyorsanız ayarlarını kontrol edin
+- E-posta bildirimlerinin açık olduğundan emin olun
 
-### AJAX Errors
-- Ensure that the nonce values are correct
-- Ensure that the JavaScript files are loaded
-- Check the error messages in the Console
+### AJAX Hataları
+- Nonce değerlerinin doğru olduğundan emin olun
+- JavaScript dosyalarının yüklendiğinden emin olun
+- Console'da hata mesajlarını kontrol edin
 
-## Requirements
+## Gereksinimler
 
 - WordPress 5.0+
 - PHP 7.4+
 - MySQL 5.6+
 
-## License
+## Lisans
 
-GPL v2 or later
+GPL v2 veya üzeri
 
-## Version History
+## Destek
+
+Sorularınız için: [pepech.com](https://pepech.com)
+
+## Sürüm Geçmişi
 
 ### 1.0.0
-- Initial release
-- Basic notification system
-- Email integration
-- Admin panel
-- API functions
+- İlk sürüm
+- Temel bildirim sistemi
+- E-posta entegrasyonu
+- Admin paneli
+- API fonksiyonları
