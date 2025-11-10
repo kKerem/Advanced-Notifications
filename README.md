@@ -45,7 +45,6 @@ WordPress için gelişmiş bildirim sistemi eklentisi. Kullanıcılara bildirim 
    - Eski bildirimleri temizleyin
 
 ### Frontend Entegrasyonu
-
 Header'da bildirim dropdown'ını göstermek için tema dosyanıza şu kodu ekleyin:
 
 ```php
@@ -53,7 +52,6 @@ Header'da bildirim dropdown'ını göstermek için tema dosyanıza şu kodu ekle
 ```
 
 ### API Kullanımı
-
 Diğer eklentilerden bildirim göndermek için:
 
 ```php
@@ -68,7 +66,6 @@ do_action('pepech_send_notification', $user_id, $title, $message, $type, $send_e
 ```
 
 ### Kullanıcı Bildirimlerini Getirme
-
 ```php
 // Son 10 bildirimi getir
 $notifications = pepech_get_user_notifications($user_id, 10);
@@ -93,7 +90,6 @@ $unread_count = pepech_get_unread_count($user_id);
 ## Veritabanı Yapısı
 
 Eklenti aşağıdaki tabloyu oluşturur:
-
 ```sql
 CREATE TABLE wp_pepech_notifications (
     id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -114,7 +110,6 @@ CREATE TABLE wp_pepech_notifications (
 ## Özelleştirme
 
 ### CSS Özelleştirme
-
 Bildirim stillerini özelleştirmek için tema CSS'inize ekleyin:
 
 ```css
@@ -130,9 +125,7 @@ Bildirim stillerini özelleştirmek için tema CSS'inize ekleyin:
 ```
 
 ### JavaScript Özelleştirme
-
 Bildirim davranışlarını özelleştirmek için:
-
 ```javascript
 // Bildirim açıldığında özel işlem
 jQuery(document).on('pepech_notification_opened', function(event, notification) {
@@ -148,7 +141,6 @@ jQuery(document).on('pepech_notification_read', function(event, notificationId) 
 ## Hook'lar ve Filtreler
 
 ### Action Hook'ları
-
 ```php
 // Bildirim gönderildiğinde
 do_action('pepech_notification_sent', $notification_id, $user_id);
@@ -161,7 +153,6 @@ do_action('pepech_all_notifications_read', $user_id);
 ```
 
 ### Filter Hook'ları
-
 ```php
 // E-posta içeriğini özelleştirme
 add_filter('pepech_email_content', function($content, $title, $message) {
@@ -192,13 +183,11 @@ add_filter('pepech_max_notifications', function($limit) {
 - Console'da hata mesajlarını kontrol edin
 
 ## Gereksinimler
-
 - WordPress 5.0+
 - PHP 7.4+
 - MySQL 5.6+
 
 ## Sürüm Geçmişi
-
 ### 1.0.0
 - İlk sürüm
 - Temel bildirim sistemi
