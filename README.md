@@ -197,14 +197,6 @@ add_filter('pepech_max_notifications', function($limit) {
 - PHP 7.4+
 - MySQL 5.6+
 
-## Lisans
-
-GPL v2 veya üzeri
-
-## Destek
-
-Sorularınız için: [pepech.com](https://pepech.com)
-
 ## Sürüm Geçmişi
 
 ### 1.0.0
